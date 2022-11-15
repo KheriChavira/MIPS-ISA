@@ -21,6 +21,8 @@ main:
         add $t1,$t2,$t3
         sw  $t3,$s4
         
+        j exit
+        
         
     
         
