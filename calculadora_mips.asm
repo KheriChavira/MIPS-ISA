@@ -14,15 +14,15 @@ main:
        C2_COND: RESTA
         sub   $t1,$s0,$s1,$s2     #resta c=a-b
          jal resultado        #resultado
-        j C3_COND             
+        j C3_COND             #cargar siguiente case
        C3_COND: MUL
         mul   $t2,$s0,$s1,$s2     #Mul c=a*b
          jal resultado
-        j C4_COND
+        j C4_COND             #cargar suguiente case
        C4_COND: DIV
        andi       $t3,$s0,$s1,$s2     #Div c=a/b
                jal resultado
-        j   exit
+        j   exit                      #salida
       
 exit        
         
