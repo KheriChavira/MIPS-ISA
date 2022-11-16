@@ -1,32 +1,42 @@
 .text
 
 main:
-        li $s0,5 #A
-        li $s1,3 #B
-        li $t0,$s2,0 #C
+        li $s0, 5 #A
+        li $s1, 3 #B
+        li $s2, 0 #C
         j C1_COND    #case
-        jal resultado
         
-       C1_COND: SUMA           #case
-        add   $t0,$s0,$s1,$s2     #suma c=a+b
-        jal resultado          #resultado
+        
+       C1_COND:          #case
+        lw    $t1,($s0)
+        lw    $t2,($s1)
+        lw    $t3,($s2)
+        add   $s2,$t1,$t2    #suma c=a+b
         j C2_COND              #case
-       C2_COND: RESTA
-        sub   $t1,$s0,$s1,$s2     #resta c=a-b
-         jal resultado        #resultado
+       C2_COND: 
+        lw    $t1,($s0)
+        lw    $t2,($s1)
+        lw    $t3,($s2)       
+        sub   $s2,$t1,$t2      #resta c=a-b
         j C3_COND             #cargar siguiente case
-       C3_COND: MUL
-        mul   $t2,$s0,$s1,$s2     #Mul c=a*b
-         jal resultado
+       C3_COND: 
+        lw    $t1,($s0)
+        lw    $t2,($s1)
+        lw    $t3,($s2)  
+        mul   $s2,$t1,$t2    #Mul c=a*b
         j C4_COND             #cargar suguiente case
-       C4_COND: DIV
-       andi       $t3,$s0,$s1,$s2     #Div c=a/b
-               jal resultado
-        j   exit                      #salida
+       C4_COND:
+        lw    $t1,($s0)
+        lw    $t2,($s1)
+        lw    $t1,-100($t2)
+        andi  $t1,$t2,100    #Div c=a/b
       
-exit        
         
         
+        j   exit                      #salida
+        
+      
+exit:
         
         
           
