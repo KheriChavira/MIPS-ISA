@@ -10,15 +10,15 @@ main:
         la $s2, array2   #matriz 2
         la $s3, array3   #matriz 3
        
-while: 
-        slti $t1,$s3,5 
-        addi $t1,$s3,5
-        j while
+while:                   #declaracion de while
+        slti $t1,$s3,5   
+        addi $t1,$s3,5   #sumamos la matriz mas 5 
+        j while          #ejecutamos el while
  
-        lw  $t1,($s3)
-        lw  $t2,($s2)
-        lw  $t3,($s1)
-        add $t4,$t2,$t1
-        sw  $t1,-100($t2)   
+        lw  $t1,($s3)    #cargamos en t1 matriz 3
+        lw  $t2,($s2)    #cargamos en t1 matriz 3
+        lw  $t3,($s1)    #cargamos en t1 matriz 3
+        add $t4,$t2,$t1  #sumamos las matices
+        sw  $t1,-100($t2)  #resultado 
         
 exit:  
